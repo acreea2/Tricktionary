@@ -1,0 +1,464 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+
+.main{
+	padding: 0px;
+}
+
+.freezeframe-animation-icon {
+display: none !important;
+}
+
+
+deets {
+width: 100%;
+height: 26px;
+background: white;
+display: table;
+padding: 10px;
+bottom: -60px;
+position: absolute;
+transition: .5s ease-out;
+}
+
+deets span {
+float: left;
+font-size: 1.3em;
+}
+
+.vault{ background: rgba(32,155,230,0.90);}
+.flip{ background: rgba(238,67,69,0.90);}
+.tech{ background: rgba(14,220,142,0.90);}
+
+
+.vault, .flip, .tech{
+text-align: center;
+height: 200px;
+padding: 0px;
+overflow: hidden;
+box-shadow: inset 0px 0px 12px -4px rgba(0, 0, 0, 0.1);
+transition: .6s ease;
+}
+
+.vault h1 {
+margin-top: 20%;
+color: white;
+letter-spacing: .07em;
+font-weight: 200;
+text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+opacity: 1;
+}
+
+.vault img {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: -1;
+
+filter: blur(2px);
+-o-filter: blur(2px);
+-ms-filter: blur(2px);
+-moz-filter: blur(2px);
+-webkit-filter: blur(2px);
+transition: .6s ease;
+
+box-shadow: inset 0px 0px 0px 100px rgba(32,155,230,0.90);
+}
+
+.vault img::after{
+	content: "";
+	background: red;
+}
+
+.vault img::before{
+	content: "";
+	background: red;
+}
+
+
+.vault:hover h1 {
+opacity: .0;
+transition: .5s ease;
+}
+
+.vault:hover {
+background: rgba(32,155,230,0.2);
+transition: 1s ease;
+}
+
+.vault:hover img {
+filter: blur(0px);
+-o-filter: blur(0px);
+-ms-filter: blur(0px);
+-moz-filter: blur(0px);
+-webkit-filter: blur(0px);
+transition: 1s ease;
+}
+
+
+.vault:hover deets{
+bottom: 0px;
+transition: .6s ease;
+}
+
+.vault figure {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: -1;
+filter: blur(2px);
+-o-filter: blur(2px);
+-ms-filter: blur(2px);
+-moz-filter: blur(2px);
+-webkit-filter: blur(2px);
+transition: .6s ease;
+
+box-shadow: inset 0px 0px 0px 100px rgba(32,155,230,0.90);
+}
+
+.vault:hover figure .freezeframe_done{
+opacity: 1 !important;
+}
+
+
+/*
+
+.var{
+	display: none;	
+}
+
+.variants:hover .var {
+display: block;
+position: absolute;
+background: red;
+list-style: none;
+right: 0px;
+top: 0px;
+font-size: 1.4em;
+}
+
+.var li {
+width: 130px;
+line-height: 2.3em;
+margin-right: 10px;
+}
+
+*/
+
+.variants {
+position: absolute;
+z-index: 100;
+right: 0px;
+top: 100%;
+transition: .6s ease;
+}
+
+.variants li {
+text-align: left;
+list-style: none;
+padding: 12px;
+width: 130px;
+transition: .5s ease;
+right: -7px;
+position: relative;
+background: white;
+}
+
+
+.variants li.selected {
+box-shadow: -7px 0px 0px 0px rgba(32,155,230,1);
+position: relative;
+color: rgba(32,155,230,1);
+}
+
+
+.variant:hover .variants {
+right: 0px;
+top: -155px;
+width: 130px;
+height: 200px;
+overflow: auto;
+transition: .5s ease;
+}
+
+.variants li:hover {
+box-shadow: -7px 0px 0px 0px rgba(32,155,230,1);
+color: rgba(32,155,230,1);
+}
+
+
+
+.flip h1 {
+margin-top: 20%;
+color: white;
+letter-spacing: .07em;
+font-weight: 200;
+text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.flip img {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: -1;
+
+
+filter: blur(2px);
+-o-filter: blur(2px);
+-ms-filter: blur(2px);
+-moz-filter: blur(2px);
+-webkit-filter: blur(2px);
+transition: .6s ease;
+}
+
+.flip img::after{
+	content: "";
+	background: red;
+}
+
+.flip img::before{
+	content: "";
+	background: red;
+}
+
+
+.flip:hover {
+background: rgba(32,155,230,0.2);
+transition: 1s ease;
+}
+
+.flip:hover img {
+filter: blur(0px);
+-o-filter: blur(0px);
+-ms-filter: blur(0px);
+-moz-filter: blur(0px);
+-webkit-filter: blur(0px);
+transition: 1s ease;
+}
+
+.flip figure {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: -1;
+filter: blur(2px);
+-o-filter: blur(2px);
+-ms-filter: blur(2px);
+-moz-filter: blur(2px);
+-webkit-filter: blur(2px);
+transition: .6s ease;
+}
+
+.flip:hover figure .freezeframe_done{
+opacity: 1 !important;
+}
+
+
+
+.tech h1 {
+margin-top: 20%;
+color: white;
+letter-spacing: .07em;
+font-weight: 200;
+text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tech img {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: -1;
+
+
+filter: blur(2px);
+-o-filter: blur(2px);
+-ms-filter: blur(2px);
+-moz-filter: blur(2px);
+-webkit-filter: blur(2px);
+transition: .6s ease;
+}
+
+.tech img::after{
+	content: "";
+	background: red;
+}
+
+.tech img::before{
+	content: "";
+	background: red;
+}
+
+
+.tech:hover {
+background: rgba(32,155,230,0.2);
+transition: 1s ease;
+}
+
+.tech:hover img {
+filter: blur(0px);
+-o-filter: blur(0px);
+-ms-filter: blur(0px);
+-moz-filter: blur(0px);
+-webkit-filter: blur(0px);
+transition: 1s ease;
+}
+
+.tech figure {
+height: 100%;
+width: 100%;
+position: absolute;
+left: 0px;
+top: 0px;
+z-index: -1;
+filter: blur(2px);
+-o-filter: blur(2px);
+-ms-filter: blur(2px);
+-moz-filter: blur(2px);
+-webkit-filter: blur(2px);
+transition: .6s ease;
+}
+
+.tech:hover figure .freezeframe_done{
+opacity: 1 !important;
+}
+
+
+.isotope-item {
+z-index: 2;
+}
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+ 
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
